@@ -2,10 +2,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-mean = [0, 0]
-cov = [[1, 0], [0, 1]]  # diagonal covariance
+mean = np.array([0, 0])
+cov = np.array([[1, 0], [0, 1]])  # diagonal covariance
 A = 10
-simlen = int(1e4)
+simlen = int(1e6)
 n1, n2 = np.random.multivariate_normal(mean, cov, simlen).T
 y1 = A + n1
 y2 = n2

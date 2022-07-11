@@ -4,7 +4,7 @@ import mpmath as mp
 import scipy 
 import matplotlib.pyplot as plt
 
-maxrange=50
+maxrange=50 
 maxlim=6.0
 x = np.linspace(-maxlim,maxlim,maxrange)#points on the x axis
 simlen = int(1e6) #number of samples

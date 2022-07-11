@@ -207,6 +207,26 @@ fclose(fp);
 }
 //End function for generating uniform random numbers
 
+//Defining the function for generating equiprobable numbers
+void equiprobable(char *str, int len)
+{
+int i;
+FILE *fp;
+
+fp = fopen(str,"w");
+//Generate numbers
+for (i = 0; i < len; i++)
+{
+  double a=(double)rand()/RAND_MAX;
+  if(a>0.5) a = 1;
+  else a=-1;
+fprintf(fp,"%lf\n",a);
+}
+fclose(fp);
+
+}
+//End function for generating equiprobable  numbers
+
 //Defining the function for generating triangular distribution
 void triangular(char *str, int len)
 {
@@ -318,3 +338,93 @@ fclose(fp2);
 
 }
 //End function for gentating smaples of V
+
+//Defining the function to generate samples of Y
+void Y(char *str,char *read,char *gau)
+{
+int i;
+FILE *fp1,*fp2,*fp3;
+double val,N;
+ 
+fp1 = fopen(read,"r");
+fp2 = fopen(str,"w");
+fp3 = fopen(gau,"r");
+//Generate numbers
+while(fscanf(fp1,"%lf",&val)!=EOF && fscanf(fp3,"%lf",&N)!=EOF)
+{
+fprintf(fp2,"%lf\n",val+N);
+}
+fclose(fp1);
+fclose(fp2);
+fclose(fp3);
+
+}
+//End function for gentating smaples of Y
+
+//Defining the function for generating Gaussian random numbers
+void gauss(char *str, int sig, int len)
+{
+int i,j;
+double temp;
+FILE *fp;
+
+fp = fopen(str,"w");
+//Generate numbers
+for (i = 0; i < len; i++)
+{
+temp = 0;
+for (j = 0; j < 12; j++)
+{
+temp += (double)rand()/RAND_MAX;
+}
+temp-=6;
+fprintf(fp,"%lf\n",sig*temp);
+}
+fclose(fp);
+
+}
+//End function for generating Gaussian random numbers
+
+//Defining the function for generating bernoulli random numbers
+void bernoulli(char *str, int len)
+{
+int i;
+FILE *fp;
+
+fp = fopen(str,"w");
+//Generate numbers
+for (i = 0; i < len; i++)
+{
+fprintf(fp,"%lf\n",(double)rand()/RAND_MAX < 0.5 ? -1.0 : 1.0);
+}
+fclose(fp);
+
+}
+//End function for generating bernoulli random numbers
+
+//Defining the function for generating rayleigh random numbers
+void ral(char *str, int len)
+{
+int i,j;
+double y1, y2;
+FILE *fp;
+
+fp = fopen(str,"w");
+//Generate numbers
+for (i = 0; i < len; i++)
+{
+y1 = 0, y2 = 0;
+for (j = 0; j < 12; j++)
+{
+y1 += (double)rand()/RAND_MAX;
+y2 += (double)rand()/RAND_MAX;
+}
+y1-=6,y2-=6;
+double sig = sqrt(1/2.0);
+y1*=sig,y2*=sig;
+fprintf(fp,"%lf\n",sqrt(y1*y1 + y2*y2));
+}
+fclose(fp);
+
+}
+//End function for generating rayleigh random numbers

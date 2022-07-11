@@ -39,5 +39,5 @@ plt.xlabel('$x_i$')
 plt.ylabel('$p_A(x_i)$')
 plt.legend(["Numerical","Theory"])
 
-plt.savefig('6.3_pdf.png')
+plt.savefig('6.3_pdf.png') 
 # plt.show() #opening the plot window

@@ -17,7 +17,7 @@ for i in range(0,50):
 def chi_cdf(x):
   return 1-math.exp(-(x)/2)
 
-vec_chi=scipy.vectorize(chi_cdf)	
+vec_chi=scipy.vectorize(chi_cdf)	 
 plt.plot(x,vec_chi(x))
 plt.plot(x.T, err,'o')#plotting the CDF
 plt.grid() #creating the grid

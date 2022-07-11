@@ -18,5 +18,17 @@ V("log.dat","uni.dat");
 //Generating triangular distribution
 triangular("T.dat",1000000);
 
+//Generating equiprobable distribution
+equiprobable("equiprobable.dat",1000000);
+
+//Generating sample of Y = AX+N
+Y("Y1.dat","equiprobable.dat","gau.dat");
+
+//Generating sample of Y = AX+N
+bernoulli("ber.dat", 1000000);
+gauss("Y.dat", 1, 1000000);
+
+ral("ral.dat", 1000000);
+
 return 0;
 }

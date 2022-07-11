@@ -25,8 +25,8 @@ for i in range(0, snr_size):
     err.append(err_n/simlen)
     ber.append(Q(mp.sqrt(snr)))
 
-plt.semilogy(snr_dB.T, ber, label = 'Analysis')
-plt.semilogy(snr_dB.T, err, 'o',  label = 'Simulated')
+plt.semilogy(snr_dB.T, ber, label = 'Theory')
+plt.semilogy(snr_dB.T, err, 'o',  label = 'Numerical')
 plt.xlabel('SNR $\\left(\\frac{A}{\\sqrt{2}}\\right)$')
 plt.ylabel('$P_e$')
 plt.legend()

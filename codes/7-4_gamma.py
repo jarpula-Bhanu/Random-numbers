@@ -39,7 +39,7 @@ plt.xlabel('$\gamma$ in dB')
 plt.ylabel('$P_e(\gamma)$')
 plt.legend(["Theoretical", "Numerical"])
 plt.grid()
-
+ 
 
 plt.savefig('7.4-gamma.png')
 # plt.show() #opening the plot window
